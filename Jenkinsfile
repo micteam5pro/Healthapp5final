@@ -26,9 +26,9 @@ pipeline{
                 sh 'ls'
             }
         }
-        stage('6-word count'){
+        stage('6-memory'){
             steps{
-                sh 'wc -l'
+                sh 'free -m'
             }
         }stage('7-loginfo'){
             steps{
