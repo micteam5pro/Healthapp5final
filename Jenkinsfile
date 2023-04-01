@@ -1,49 +1,51 @@
 pipeline{
-    agent any
+    agent any 
     stages{
         stage('1-clone'){
             steps{
-                sh 'pwd'
+                sh checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git.id', url: 'https://github.com/micteam5pro/Healthapp5final.git']])
             }
         }
         stage('2-test'){
             steps{
-                sh 'lsblk'
+                sh 'lscpu'
             }
         }
-        stage('3-testing'){
+        stage('3-location'){
             steps{
-                sh 'll'
+                sh 'pwd'
             }
         }
-        stage('4-dir'){
-            steps{
-                sh 'mkdir'
-            }
-        }
-        stage('5-list'){
+        stage('4-list'){
             steps{
                 sh 'ls'
             }
         }
-        stage('6-memory'){
+        stage('5-logs'){
             steps{
-                sh 'free -m'
-            }
-        }stage('7-loginfo'){
-            steps{
-                sh 'whoami'
+                sh 'echo "healthapp" '
             }
         }
-        stage('8-network'){
+        stage('6-systemcheck'){
             steps{
-                sh 'ip -a'
+                sh 'uptime'
             }
         }
-        stage('9-message'){
+        stage('7-indentifier'){
             steps{
-                sh 'Welcome to Health app Group 5'
+                sh '#!/bin/bash'
             }
         }
+        stage('8-systemcheck'){
+            steps{
+                sh 'sudo systemctl status jenkins'
+            }
+        }
+        stage('9-network info'){
+            steps{
+                sh 'cat /etc/passwd'
+            }
+        }
+        
     }
 }
