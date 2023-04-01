@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-clone'){
             steps{
-                sh checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git.id', url: 'https://github.com/micteam5pro/Healthapp5final.git']])
+                sh 'whoami'
             }
         }
         stage('2-test'){
